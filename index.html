@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeMary Concept | Vista a sua essência</title>
+<meta name="description" content="LeMary Concept: vista a sua essência. Elegância, atitude e autenticidade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@500;600&family=Allura&display=swap" rel="stylesheet">
+<style>
+:root{--fundo:#f8f1e8;--bege:#efe1d2;--areia:#dcc3a8;--rose:#a4545f;--bordo:#6e1f33;--vinho:#3d1220;--branco:#fffcf8;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat','Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--sans);font-weight:500;background:var(--fundo);color:var(--vinho);line-height:1.6}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.aviso{background:var(--bordo);color:var(--bege);text-align:center;font-size:.8rem;padding:.5rem 1rem;letter-spacing:.5px}
+.topo{position:sticky;top:0;z-index:20;background:rgba(248,241,232,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--areia);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:.8rem 1.2rem}
+.logo{display:flex;align-items:center;gap:.65rem}
+.logo .mono{width:46px;height:46px;flex:none}
+.lm-l,.lm-m{fill:none;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+.lm-l{stroke:var(--vinho)}.lm-m{stroke:var(--rose)}
+.logo .nome{display:flex;flex-direction:column;line-height:1}
+.logo .nome b{font-family:'Allura',cursive;font-size:2.6rem;font-weight:400;line-height:.85;color:var(--vinho)}
+.logo .nome small{font-size:.55rem;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:var(--rose);margin-top:4px}
+.acoes{display:flex;gap:.5rem;align-items:center}
+.menu-btn,.sacola-btn{background:none;border:1px solid var(--bordo);color:var(--bordo);border-radius:20px;cursor:pointer}
+.menu-btn{font-size:1.4rem;line-height:1;padding:.2rem .6rem;border-radius:8px}
+.sacola-btn{padding:.3rem .8rem;font-size:.95rem}
+.sacola-btn b{background:var(--bordo);color:var(--branco);border-radius:12px;font-size:.7rem;padding:.05rem .45rem;margin-left:.4rem}
+nav{display:none;width:100%;flex-direction:column;padding-top:.6rem;order:1}
+nav.aberto{display:flex}
+nav a{padding:.7rem 0;border-top:1px solid var(--bege);color:var(--bordo);font-weight:600}
+nav a:hover{color:var(--rose)}
+.banner{background:linear-gradient(135deg,#f6e9db 0%,#dcc3a8 55%,#b9747c 100%);padding:3.5rem 1.4rem;text-align:center;position:relative;overflow:hidden}
+.banner::before,.banner::after{content:"";position:absolute;border-radius:50%;background:rgba(255,252,248,.25)}
+.banner::before{width:220px;height:220px;top:-70px;left:-60px}
+.banner::after{width:300px;height:300px;bottom:-130px;right:-90px}
+.banner-in{position:relative;z-index:1;max-width:680px;margin:auto}
+.banner h1{font-family:var(--serif);font-size:2.8rem;font-weight:600;line-height:1.1;margin-bottom:.7rem}
+.lema{letter-spacing:2px;font-size:.85rem;color:var(--bordo);margin-bottom:1.6rem}
+.btn{display:inline-block;background:var(--bordo);color:var(--branco);padding:.8rem 2rem;border-radius:30px;font-weight:600;border:2px solid var(--bordo);transition:.2s;cursor:pointer}
+.btn:hover{background:var(--vinho);border-color:var(--vinho)}
+.btn.claro{background:transparent;color:var(--bordo);margin-left:.4rem}
+.btn.claro:hover{background:var(--bordo);color:var(--branco)}
+.secao{padding:2.8rem 1.2rem;max-width:1100px;margin:auto}
+h2{font-family:var(--serif);text-align:center;font-size:2rem;font-weight:600;color:var(--bordo)}
+.sub{text-align:center;color:#8a5c66;margin:.2rem 0 1.6rem;font-size:.92rem}
+.linha{width:50px;height:3px;background:var(--rose);margin:.5rem auto .6rem;border-radius:2px}
+.categorias,.produtos{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.cat{background:var(--branco);border:1px solid var(--areia);border-radius:18px;padding:1.5rem .5rem;text-align:center;font-weight:600;color:var(--bordo);cursor:pointer;transition:.25s}
+.cat span{display:block;font-size:2.2rem;margin-bottom:.3rem}
+.cat:hover{transform:translateY(-4px);background:var(--bege)}
+.faixa{background:var(--bege);padding:2.8rem 1.2rem}
+.faixa .interno{max-width:1100px;margin:auto}
+.filtros{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:1.5rem}
+.filtros button{border:1px solid var(--bordo);background:transparent;color:var(--bordo);padding:.45rem 1.1rem;border-radius:20px;cursor:pointer;font-size:.85rem}
+.filtros button.ativo{background:var(--bordo);color:var(--branco)}
+.card{background:var(--branco);border-radius:16px;overflow:hidden;box-shadow:0 3px 12px rgba(61,18,32,.1);display:flex;flex-direction:column}
+.card .img{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;background:linear-gradient(135deg,var(--bege),var(--areia));position:relative}
+.card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.selo{z-index:2;position:absolute;top:8px;left:8px;background:var(--bordo);color:var(--branco);font-size:.65rem;padding:.15rem .6rem;border-radius:12px}
+.card .info{padding:.85rem;display:flex;flex-direction:column;gap:.25rem;flex:1}
+.card small{color:var(--rose);text-transform:uppercase;font-size:.65rem;letter-spacing:1.5px;font-weight:700}
+.card h3{font-size:.95rem;font-weight:600;line-height:1.3}
+.preco{font-size:1.1rem;font-weight:700;color:var(--bordo)}
+.card .btn{margin-top:auto;text-align:center;padding:.55rem;font-size:.85rem;border-radius:10px}
+.mais{text-align:center;margin-top:1.5rem}
+.rodape{background:var(--vinho);color:var(--bege);padding:2.4rem 1.2rem 1.2rem}
+.rodape .cols{max-width:1100px;margin:auto;display:grid;gap:1.6rem}
+.rodape .logo{margin-bottom:.6rem}
+.rodape .lm-l{stroke:var(--bege)}.rodape .lm-m{stroke:var(--areia)}
+.rodape .nome b{color:var(--bege)}.rodape .nome small{color:var(--areia)}
+.rodape h4{color:var(--areia);margin-bottom:.5rem;font-family:var(--serif);font-size:1.1rem}
+.rodape a{display:block;padding:.15rem 0;opacity:.9}
+.rodape a:hover{color:var(--areia)}
+.rodape .fim{display:block;text-align:center;margin-top:1.8rem;padding-top:1rem;border-top:1px solid rgba(220,195,168,.25);opacity:.7;font-size:.8rem}
+.fundo-sacola{position:fixed;inset:0;background:rgba(61,18,32,.5);z-index:30;display:none}
+.fundo-sacola.aberto{display:block}
+.gaveta{position:fixed;top:0;right:0;height:100%;width:min(380px,100%);background:var(--fundo);z-index:31;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column}
+.gaveta.aberto{transform:none}
+.gaveta header{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid var(--areia);font-family:var(--serif);color:var(--bordo);font-size:1.3rem}
+.gaveta header button{background:none;border:0;font-size:1.4rem;color:var(--bordo);cursor:pointer}
+.itens{flex:1;overflow-y:auto;padding:.5rem 1.2rem}
+.item{display:flex;gap:.7rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--bege)}
+.item .ic{font-size:1.8rem}
+.item .nm{flex:1;font-size:.85rem;color:#8a5c66}
+.item .nm strong{display:block;color:var(--vinho);font-size:.92rem}
+.qtd{display:flex;align-items:center;gap:.5rem}
+.qtd button{width:28px;height:28px;border-radius:50%;border:1px solid var(--bordo);background:transparent;color:var(--bordo);cursor:pointer;font-size:1rem}
+.vazio{text-align:center;color:#8a5c66;padding:2.5rem 0}
+.rodape-sacola{padding:1rem 1.2rem;border-top:1px solid var(--areia);background:var(--branco)}
+.total{display:flex;justify-content:space-between;font-weight:700;margin-bottom:.8rem;color:var(--bordo);font-size:1.1rem}
+.rodape-sacola .btn{display:block;text-align:center;width:100%}
+.aviso-add{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--vinho);color:var(--bege);padding:.6rem 1.2rem;border-radius:20px;font-size:.85rem;z-index:40;opacity:0;pointer-events:none;transition:.3s}
+.aviso-add.on{opacity:1}
+@media(min-width:768px){
+.menu-btn{display:none}
+nav{display:flex;flex-direction:row;width:auto;gap:1.8rem;padding:0}
+nav a{border:0;padding:0}
+.banner{padding:6rem 2rem}.banner h1{font-size:4.2rem}
+.categorias,.produtos{grid-template-columns:repeat(4,1fr)}
+.card .img{height:180px}
+.rodape .cols{grid-template-columns:2fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="aviso">Vista a sua essência</div>
+<header class="topo">
+  <a href="#inicio" class="logo" aria-label="LeMary Concept"><svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><path class="lm-l" d="M26 25V75H42"/><path class="lm-m" d="M42 75V25L58 58L74 25V75"/></svg><span class="nome"><b>LeMary</b><small>Concept</small></span></a>
+  <div class="acoes"><button class="sacola-btn" id="sacolaBtn" aria-label="Abrir sacola">🛍️ Sacola<b id="contador">0</b></button><button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button></div>
+  <nav id="menu"><a href="#inicio">Início</a><a href="#categorias">Categorias</a><a href="#destaques">Produtos</a><a href="#contato">Contato</a></nav>
+</header>
+<main id="inicio">
+  <section class="banner"><div class="banner-in">
+    <h1>Vista a sua essência</h1>
+    <p class="lema">Elegância • Atitude • Autenticidade</p>
+    <a href="#destaques" class="btn">Ver produtos</a><a href="#categorias" class="btn claro">Categorias</a>
+  </div></section>
+  <section id="categorias" class="secao">
+    <h2>Compre por categoria</h2><div class="linha"></div>
+    <p class="sub">Toque em uma categoria para ver as peças</p>
+    <div class="categorias">
+      <a class="cat" href="#destaques" data-filtro="Conjuntos Legging"><span>🧘‍♀️</span>Conjuntos Legging</a>
+      <a class="cat" href="#destaques" data-filtro="Conjuntos Short"><span>🩳</span>Conjuntos Short</a>
+      <a class="cat" href="#destaques" data-filtro="Macaquinhos"><span>🩱</span>Macaquinhos</a>
+      <a class="cat" href="#destaques" data-filtro="Blusas e Avulsas"><span>👚</span>Blusas e Avulsas</a>
+    </div>
+  </section>
+  <section id="destaques" class="faixa"><div class="interno">
+    <h2>Nossas peças</h2><div class="linha"></div>
+    <p class="sub">Escolha sua peça e finalize o pedido pelo WhatsApp</p>
+    <div class="filtros" id="filtros"></div>
+    <div class="produtos" id="produtos"></div>
+    <div class="mais"><button class="btn claro" id="verMais" style="display:none;margin-left:0">Ver mais peças</button></div>
+  </div></section>
+</main>
+<footer id="contato" class="rodape">
+  <div class="cols">
+    <div><div class="logo"><svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><path class="lm-l" d="M26 25V75H42"/><path class="lm-m" d="M42 75V25L58 58L74 25V75"/></svg><span class="nome"><b>LeMary</b><small>Concept</small></span></div>
+    <p>Vista a sua essência.<br>Elegância • Atitude • Autenticidade</p></div>
+    <div><h4>Navegue</h4><a href="#categorias">Categorias</a><a href="#destaques">Produtos</a></div>
+    <div><h4>Contato</h4><a id="zapLink" href="#" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/leticiiamariane" target="_blank" rel="noopener">Instagram @leticiiamariane</a></div>
+  </div>
+  <span class="fim">© <span id="ano"></span> LeMary Concept. Todos os direitos reservados.</span>
+</footer>
+<div class="fundo-sacola" id="fundoSacola"></div>
+<aside class="gaveta" id="gaveta" aria-label="Sacola de compras">
+  <header>Sua sacola <button id="fecharSacola" aria-label="Fechar">✕</button></header>
+  <div class="itens" id="itens"></div>
+  <div class="rodape-sacola"><div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+  <a class="btn" id="finalizar" href="#" target="_blank" rel="noopener">Finalizar pelo WhatsApp</a></div>
+</aside>
+<div class="aviso-add" id="avisoAdd"></div>
+<script>
+var WHATSAPP = "5531991219362";
+// Fotos: salve em "img/" com o nome da peça (ex.: img/conjunto-leticia.jpg). Preços: edite aqui ou em precos.json
+var ICONES = {"Conjuntos Legging":"🧘‍♀️","Conjuntos Short":"🩳","Macaquinhos":"🩱","Blusas e Avulsas":"👚"};
+var L="Conjuntos Legging", S="Conjuntos Short", M="Macaquinhos", B="Blusas e Avulsas";
+var dados = [
+ ["Conjunto de Calça Aurora",L,72.9],["Conjunto Milena",L,72.9],["Conjunto Alice",L,72.9],["Conjunto Ester",L,72.9],
+ ["Conjunto Flare Clarisse",L,78.9],["Conjunto Grécia poliamida",L,109.9],["Conjunto de calça Valentina",L,72.9],["Conjunto pantalona poliamida",L,115.9],["Conjunto Celine",L,78.9],["Conjunto de calça Geovana",L,72.9],
+ ["Conjunto Letícia",S,185],["Conjunto Celine com bolso",S,72.9],["Conjunto Camila short poliamida",S,97.9],["Conjunto Camila short liso",S,66.9],["Conjunto Short Mavie",S,66.9],
+ ["Conjunto Infinity short",S,66.9],["Conjunto Lanna short poliamida",S,103.9],["Conjunto de short Roberta",S,66.9],
+ ["Macaquinho Laís com bolso",M,159.9],["Macaquinho Laura",M,72.9],["Macaquinho Helena",M,78.9],["Macacão Flare",M,78.9],["Macacão Gaby",M,79.9],["Macaquito Letícia",M,78.9],
+ ["Blusa Taís poliamida",B,57.9],["Blusa Camila poliamida",B,57.9],["Jaqueta manga longa poliamida",B,103.9],["Top Bass",B,17.9],["Calça avulsa Flare poliamida",B,74.9],["Regata poliamida",B,57.9]
+];
+var produtos = dados.map(function (d) {
+  return { nome: d[0], categoria: d[1], preco: d[2], icone: ICONES[d[1]], selo: /poliamida/i.test(d[0]) ? "Poliamida" : "" };
+});
+
+var lista = document.getElementById("produtos"), filtros = document.getElementById("filtros");
+var nomes = ["Todos", L, S, M, B];
+function zap(t) { return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t); }
+function moeda(n) { return "R$ " + n.toFixed(2).replace(".", ","); }
+var EXT = ["jpg", "jpeg", "png", "webp"];
+function slug(t) { return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+function fotoErro(el) {
+  var s = el.getAttribute("data-s"), i = parseInt(el.getAttribute("data-i"), 10) + 1;
+  if (s && i < EXT.length) { el.setAttribute("data-i", i); el.src = "img/" + s + "." + EXT[i]; }
+  else if (el.parentNode) { el.parentNode.removeChild(el); }
+}
+
+var limite = 8, atual = "Todos";
+function mostrar(filtro, mais) {
+  limite = mais ? limite + 8 : 8; atual = filtro;
+  var itens = filtro === "Todos" ? produtos : produtos.filter(function (p) { return p.categoria === filtro; });
+  lista.innerHTML = itens.slice(0, limite).map(function (p) {
+    var s = slug(p.nome);
+    return '<article class="card"><div class="img">' + (p.selo ? '<span class="selo">' + p.selo + '</span>' : "") + p.icone +
+      '<img data-s="' + s + '" data-i="0" src="img/' + s + '.jpg" alt="' + p.nome + '" loading="lazy" onerror="fotoErro(this)"></div>' +
+      '<div class="info"><small>' + p.categoria + '</small><h3>' + p.nome + '</h3><span class="preco">' + moeda(p.preco) + '</span>' +
+      '<button class="btn" data-add="' + p.nome + '">Adicionar à sacola</button></div></article>';
+  }).join("");
+  document.getElementById("verMais").style.display = itens.length > limite ? "inline-block" : "none";
+  var b = filtros.querySelectorAll("button");
+  for (var i = 0; i < b.length; i++) b[i].classList.toggle("ativo", b[i].getAttribute("data-f") === filtro);
+}
+filtros.innerHTML = nomes.map(function (n) { return '<button data-f="' + n + '">' + n + '</button>'; }).join("");
+filtros.addEventListener("click", function (e) { var f = e.target.getAttribute("data-f"); if (f) mostrar(f); });
+document.getElementById("verMais").addEventListener("click", function () { mostrar(atual, true); });
+var cats = document.querySelectorAll(".cat");
+for (var i = 0; i < cats.length; i++) cats[i].addEventListener("click", function () { mostrar(this.getAttribute("data-filtro")); });
+var menu = document.getElementById("menu");
+document.getElementById("menuBtn").addEventListener("click", function () { menu.classList.toggle("aberto"); });
+var links = menu.querySelectorAll("a");
+for (var j = 0; j < links.length; j++) links[j].addEventListener("click", function () { menu.classList.remove("aberto"); });
+
+var sacola = [];
+try { sacola = JSON.parse(localStorage.getItem("lemary_sacola")) || []; } catch (e) { sacola = []; }
+function achar(nome) { for (var i = 0; i < produtos.length; i++) if (produtos[i].nome === nome) return produtos[i]; return null; }
+function desenhar() {
+  var tot = 0, qt = 0, html = "", linhas = [];
+  sacola = sacola.filter(function (s) { return achar(s.nome); });
+  sacola.forEach(function (s) {
+    var p = achar(s.nome), sub = p.preco * s.q;
+    tot += sub; qt += s.q;
+    linhas.push("• " + s.q + "x " + p.nome + " - " + moeda(sub));
+    html += '<div class="item"><div class="ic">' + p.icone + '</div><div class="nm"><strong>' + p.nome + '</strong>' + moeda(p.preco) + '</div>' +
+      '<div class="qtd"><button data-menos="' + p.nome + '">−</button><span>' + s.q + '</span><button data-mais="' + p.nome + '">+</button></div></div>';
+  });
+  document.getElementById("itens").innerHTML = html || '<p class="vazio">Sua sacola está vazia.</p>';
+  document.getElementById("total").textContent = moeda(tot);
+  document.getElementById("contador").textContent = qt;
+  document.getElementById("finalizar").href = qt ? zap("Olá! Gostaria de finalizar este pedido na LeMary Concept:\n" + linhas.join("\n") + "\nTotal: " + moeda(tot) + "\n\nTamanhos e cores: ") : "#";
+}
+function salvar() { try { localStorage.setItem("lemary_sacola", JSON.stringify(sacola)); } catch (e) {} desenhar(); }
+function mudar(nome, d) {
+  for (var i = 0; i < sacola.length; i++) if (sacola[i].nome === nome) { sacola[i].q += d; if (sacola[i].q <= 0) sacola.splice(i, 1); salvar(); return; }
+  if (d > 0) { sacola.push({ nome: nome, q: 1 }); salvar(); }
+}
+function gaveta(a) { document.getElementById("gaveta").classList.toggle("aberto", a); document.getElementById("fundoSacola").classList.toggle("aberto", a); }
+function aviso(t) { var a = document.getElementById("avisoAdd"); a.textContent = t; a.classList.add("on"); setTimeout(function () { a.classList.remove("on"); }, 1500); }
+document.addEventListener("click", function (e) {
+  var t = e.target; if (!t.getAttribute) return;
+  if (t.getAttribute("data-add")) { mudar(t.getAttribute("data-add"), 1); aviso("Adicionado à sacola ✓"); }
+  else if (t.getAttribute("data-mais")) mudar(t.getAttribute("data-mais"), 1);
+  else if (t.getAttribute("data-menos")) mudar(t.getAttribute("data-menos"), -1);
+});
+document.getElementById("sacolaBtn").addEventListener("click", function () { gaveta(true); });
+document.getElementById("fecharSacola").addEventListener("click", function () { gaveta(false); });
+document.getElementById("fundoSacola").addEventListener("click", function () { gaveta(false); });
+document.getElementById("finalizar").addEventListener("click", function (e) {
+  if (this.getAttribute("href") === "#") { e.preventDefault(); aviso("Adicione uma peça primeiro"); }
+});
+document.getElementById("zapLink").href = zap("Olá! Vim pelo site da LeMary Concept.");
+document.getElementById("ano").textContent = new Date().getFullYear();
+mostrar("Todos"); desenhar();
+
+// Preços alterados em precos.json (ex.: {"Conjunto Alice": 89.9}) valem sobre os daqui
+fetch("precos.json").then(function (r) { return r.ok ? r.json() : {}; }).then(function (o) {
+  produtos.forEach(function (p) { var v = parseFloat(String(o[p.nome]).replace(",", ".")); if (v > 0) p.preco = v; });
+  mostrar(atual); desenhar();
+}).catch(function () {});
+</script>
+</body>
+</html>
